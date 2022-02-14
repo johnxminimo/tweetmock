@@ -4,13 +4,19 @@
 //
 //  Created by Dan on 1/3/19.
 //  Copyright © 2019 Dan. All rights reserved.
+
+/* API Key: mg5DVpcuzgoh5kWVeXOt56oTC
+API Key Secret: jOj8nEwogmUCsIIhHF7n4X9AacPvyjeukhZaKvcDwJz1k2dEZf
+Bearer Token:
+AAAAAAAAAAAAAAAAAAAAADDyZAEAAAAAKrnAmLUd9Vxlue72KMp34nwYqj8%3DaVMuNugXsK9HKDh0PPelMrmQkepaUiZQcnwUYUhSITmQQDem0F */
+
 //
 
 import UIKit
 import BDBOAuth1Manager
 
 class TwitterAPICaller: BDBOAuth1SessionManager {    
-    static let client = TwitterAPICaller(baseURL: URL(string: "https://api.twitter.com"), consumerKey: "5lUJuO5AUpPUCez4ewYDFrtgh", consumerSecret: "s5ynGqXzstUZwFPxVyMDkYh197qvHOcVM3kwv1o2TKhS1avCdS")
+    static let client = TwitterAPICaller(baseURL: URL(string: "https://api.twitter.com"), consumerKey: "mg5DVpcuzgoh5kWVeXOt56oTC", consumerSecret: "jOj8nEwogmUCsIIhHF7n4X9AacPvyjeukhZaKvcDwJz1k2dEZf")
     var loginSuccess: (() -> ())?
     var loginFailure: ((Error) -> ())?
     
