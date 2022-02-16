@@ -13,6 +13,8 @@ class HomeTableViewController: UITableViewController {
     
     var tweetArray = [NSDictionary]()
     
+    var requestsArray = [NSDictionary]()
+    
     var numberOfTweet: Int!
     
     let myRefreshControl = UIRefreshControl()
@@ -40,14 +42,24 @@ class HomeTableViewController: UITableViewController {
         
     }
     
+    
+    func checkRequestsLeft(){
+        let URL:String = "https://api.twitter.com/1.1/application/rate_limit_status.json"
+        TwitterAPICaller.client?.getDictionariesRequest(url: URL, parameters: ["resources" : "users"], success: <#T##([NSDictionary]) -> ()#>, failure: { Error in
+            print("Couldn't retrieve requests")
+        })
+        
+        
+    }
+    
     func loadMoreTweets(){
         numberOfTweet = numberOfTweet + 25;
+        pullTweets()
     }
     
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         if indexPath.row + 1 == tweetArray.count {
             loadMoreTweets()
-            pullTweets()
         }
     }
     
