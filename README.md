@@ -18,9 +18,13 @@ The following **bonus** features are implemented:
 
 - [x] User can pull to refresh. (1pt)
 - [x] User can load past tweets infinitely. (2pts)
+- [x] Added custom rate limit checker function (custom)
+
+## Notes
+In the gif, it does not properly show gif refresh, as I had reached the API rate limit, which doesn't allow me to pull any more tweets. I know this since I added a function which is called whenever trying to pull more tweets. The function logs how much of the rate limit is used. 
 
 ## Video Walkthrough
 
 Here's a walkthrough of implemented user stories:
 
-<img src='http://i.imgur.com/link/to/your/gif/file.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src=gifOfApp.gif title='Video Walkthrough' width='' alt='Video Walkthrough' />
