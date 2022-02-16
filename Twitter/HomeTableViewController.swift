@@ -13,7 +13,7 @@ class HomeTableViewController: UITableViewController {
     
     var tweetArray = [NSDictionary]()
     
-    var requestsArray = [NSDictionary]()
+ //   var requestsArray = [NSDictionary]()
     
     var numberOfTweet: Int!
     
@@ -32,7 +32,7 @@ class HomeTableViewController: UITableViewController {
                 self.tweetArray.append(tweet)
             }
             self.tableView.reloadData() // reload table view with content
-            
+           // self.checkRequestsLeft()
             self.myRefreshControl.endRefreshing() // stops circle thingy from spinning and stops refresh
             
         }, failure: { Error in
@@ -43,14 +43,27 @@ class HomeTableViewController: UITableViewController {
     }
     
     
-    func checkRequestsLeft(){
+   /* func checkRequestsLeft(){
         let URL:String = "https://api.twitter.com/1.1/application/rate_limit_status.json"
-        TwitterAPICaller.client?.getDictionariesRequest(url: URL, parameters: ["resources" : "users"], success: <#T##([NSDictionary]) -> ()#>, failure: { Error in
+        TwitterAPICaller.client?.getDictionariesRequest(url: URL, parameters: ["resources" : "users"], success: { (statuses:[NSDictionary]) in
+            
+            self.requestsArray.removeAll()// Clears entries
+            
+            for status in statuses {
+                self.requestsArray.append(status)
+            }
+            
+            
+            
+            
+        }, failure: { Error in
             print("Couldn't retrieve requests")
         })
         
+        print()
         
-    }
+        
+    } */
     
     func loadMoreTweets(){
         numberOfTweet = numberOfTweet + 25;
