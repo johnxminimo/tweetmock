@@ -65,6 +65,11 @@ class HomeTableViewController: UITableViewController {
         
     } */
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        self.pullTweets()
+    }
+    
     func loadMoreTweets(){
         numberOfTweet = numberOfTweet + 25;
         pullTweets()
@@ -82,6 +87,7 @@ class HomeTableViewController: UITableViewController {
         myRefreshControl.addTarget(self, action: #selector(pullTweets), for: .valueChanged)
         
         tableView.refreshControl = myRefreshControl
+
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -130,7 +136,8 @@ class HomeTableViewController: UITableViewController {
             cell.profileImageView.image = UIImage(data: imageData)
         }
         // Configure the cell...
-
+        cell.setFavorite(tweetArray[indexPath.row]["favorited"] as! Bool)
+        
         return cell
     }
     

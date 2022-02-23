@@ -10,6 +10,8 @@ import UIKit
 
 class TweetTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var favUIButton: UIButton!
+    @IBOutlet weak var retweetUIButton: UIButton!
     @IBOutlet weak var tweetContentLabel: UILabel!
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var screenNameUILabel: UILabel!
@@ -25,4 +27,22 @@ class TweetTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
 
+    @IBAction func favoritedTweet(_ sender: Any) {
+    
+    }
+    
+    @IBAction func retweetTweet(_ sender: Any) {
+    
+    }
+
+    
+    func setFavorite(_ isFavorited:Bool){
+        if (isFavorited){
+            favUIButton.setImage(#imageLiteral(resourceName:"favor-icon-red"), for: UIControl.State.normal)
+        }
+        else {
+            favUIButton.setBackgroundImage(UIImage(named:"favor-icon"), for: UIControl.State.normal)
+        }
+    }
+    
 }
